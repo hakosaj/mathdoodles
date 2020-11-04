@@ -180,20 +180,23 @@ int main() {
 	
 	int maxsteps=-1;
 	vector<int> maxn;
+
 	#pragma omp parallel
 	{
 	vector<int> origin = toDigits(100);
 	vector<int> res;
 	res=origin;
     #pragma omp for
-	for (int itres=0;itres<10000000;itres++) {
+	for (long long itres=0;itres<1000000000;itres++) {
     //while (itres>0){
+
 
 		
 		int steps=0;
 		int r;
 		while (res.size()>1) {
 			long long result;
+			cout<<itres<<endl;
 			result = std::accumulate(std::begin(res),std::end(res),1,std::multiplies<int>());
 			res=toDigits(result);
 			steps++;
